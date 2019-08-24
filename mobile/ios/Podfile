@@ -26,7 +26,6 @@ target 'mayfly' do
   pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
 
   # Mapbox
-  pod 'react-native-mapbox-gl', :path => '../node_modules/@react-native-mapbox-gl/maps'
 
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
