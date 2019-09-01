@@ -32,7 +32,14 @@ This will install all dependencies you need to run the consequent sections.
 
 ### iOS
 
-Run `yarn ios` to start compiling IOS native code and start a dev server with an emulator. If there's no need to compile native code (in general, that's the case) and run a simulator just run `yarn start` to start the dev server. You can also run the app on [an iPhone](https://facebook.github.io/react-native/docs/running-on-device)
+Start off by running the following script to install all native dependencies:
+```bash
+cd ios
+pod install
+cd ..
+```
+
+Then run `yarn ios` to start compiling IOS native code and start a dev server with an emulator. If there's no need to compile native code (in general, that's the case) and run a simulator just run `yarn start` to start the dev server. You can also run the app on [an iPhone](https://facebook.github.io/react-native/docs/running-on-device)
 
 Note:
 When using iTerm (or anything but the default macOS Terminal) `yarn ios` will run the server in the macOS Terminal. If you want it to run in your terminal of choice close the Terminal and run `yarn start` in your terminal. After that you're good to go! To get rid of this behavior follow [this stackoverflow answer](https://stackoverflow.com/a/37815748)
