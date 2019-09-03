@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'graphene_django',
-    'rest_framework'
+    'rest_framework',
+    'seeder'
 ]
 
 MIDDLEWARE = [
@@ -133,5 +134,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 GRAPHENE = {
-    'SCHEMA': 'django_root.schema.schema'
+    'SCHEMA': 'tool.schema.schema'
 }
