@@ -4,3 +4,4 @@ graphene-django
 django-environ
 psycopg2
 django-cors-headers
+pylint-django

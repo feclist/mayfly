@@ -1,27 +1,32 @@
-import graphene
-
-from graphene_django.types import DjangoObjectType
-
-from seeder.models import Category, Ingredient
-
-
-class CategoryType(DjangoObjectType):
-    class Meta:
-        model = Category
-
-
-class IngredientType(DjangoObjectType):
-    class Meta:
-        model = Ingredient
+from graphene import List, NonNull
+from seeder.models import Tag, Kind, Place, OpeningTime
+from seeder.types import TagType, KindType, PlaceType, OpeningTimeType
+from seeder.mutations import PlaceCreate
 
 
 class Query(object):
-    all_categories = graphene.List(CategoryType)
-    all_ingredients = graphene.List(IngredientType)
+    tags = List(
+        NonNull(TagType),
+        resolver=lambda self, info, **kwargs: Tag.objects.all(),
+        required=True,
+    )
 
-    def resolve_all_categories(self, info, **kwargs):
-        return Category.objects.all()
+    places = List(
+        NonNull(PlaceType),
+        resolver=lambda self, info, **kwargs: Place.objects.all(),
+        required=True,
+    )
+    kinds = List(
+        NonNull(KindType),
+        resolver=lambda self, info, **kwargs: Kind.objects.all(),
+        required=True,
+    )
+    opening_times = List(
+        NonNull(OpeningTimeType),
+        resolver=lambda self, info, **kwargs: OpeningTime.objects.all(),
+        required=True,
+    )
 
-    def resolve_all_ingredients(self, info, **kwargs):
-        # We can easily optimize query count in the resolve method
-        return Ingredient.objects.select_related('category').all()
+
+class Mutation(object):
+    place_create = PlaceCreate.Field()

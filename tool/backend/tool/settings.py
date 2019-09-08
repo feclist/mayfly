@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.gis',
     'graphene_django',
     'rest_framework',
     'seeder',
@@ -89,7 +90,7 @@ WSGI_APPLICATION = 'tool.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'mayflytool',
         'USER': 'mayfly',
         'PASSWORD': '',
